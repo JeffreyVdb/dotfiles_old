@@ -1,3 +1,9 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    if type -q /usr/bin/nvim
+        set -gx EDITOR /usr/bin/nvim
+    else if type -q /usr/bin/vim
+        set -gx EDITOR /usr/bin/vim
+    else if type -q /usr/bin/nano
+        set -gx EDITOR /usr/bin/nano
+    end
 end
