@@ -5,3 +5,4 @@
 	name = Jeffrey Vandenborne
 [alias]
 	c = commit --verbose
+	ap = add --patch
