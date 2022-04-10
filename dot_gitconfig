@@ -8,8 +8,18 @@
 	c = commit --verbose
 	ap = add --patch
 
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
 [delta]
     features = mantis-shrimp
+    navigate = true  # use n and N to move between diff sections
 
 
 [delta "mantis-shrimp"]
