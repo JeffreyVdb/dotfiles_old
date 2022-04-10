@@ -6,4 +6,6 @@ if status is-interactive
     else if type -q /usr/bin/nano
         set -gx EDITOR /usr/bin/nano
     end
+
+    abbr --add dnfu "sudo dnf upgrade --refresh"
 end
