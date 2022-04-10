@@ -3,3 +3,5 @@
 [user]
 	email = jeffrey@vandenborne.co
 	name = Jeffrey Vandenborne
+[alias]
+	c = commit --verbose
