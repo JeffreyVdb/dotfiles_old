@@ -7,6 +7,10 @@ is_fedora() {
 
 if is_fedora; then
     sudo dnf install -y cargo rust
+
+    # Install neovim
+    sudo dnf install -y neovim
+    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
     
     # Rust packages
     cargo install git-delta
