@@ -18,10 +18,18 @@ install_fish_shell() {
 
     fish "$FISHER_SCRIPT"
     fish -c "fisher install jorgebucaran/hydro"
+    fish -c "fisher install PatrickF1/fzf.fish"
 }
 
 if is_fedora; then
+    # Common packages
+    sudo dnf install -y fzf
+    
+    # Rust packages
     sudo dnf install -y cargo rust
+
+    cargo install git-delta
+    cargo install fd-find
 
     install_fish_shell
 
@@ -29,7 +37,4 @@ if is_fedora; then
     sudo dnf install -y neovim
     sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
     
-    # Rust packages
-    cargo install git-delta
-    cargo install fd-find
 fi
