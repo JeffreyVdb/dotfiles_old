@@ -16,9 +16,9 @@ install_fish_shell() {
     CSUM=$(sha256sum "$FISHER_SCRIPT" | awk '{print $1}')
     test "34c6f4cb4847d27bd7f081ebeafc10585eea31d3a1b1f7bf630108fc658c9529" == "$CSUM"
 
-    fish "$FISHER_SCRIPT"
-    fish -c "fisher install jorgebucaran/hydro"
-    fish -c "fisher install PatrickF1/fzf.fish"
+    fish -c "source $FISHER_SCRIPT; 
+    	  fisher install jorgebucaran/hydro;
+	  fisher install PatrickF1/fzf.fish"
 }
 
 if is_fedora; then
