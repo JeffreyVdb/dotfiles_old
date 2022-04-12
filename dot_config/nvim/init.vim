@@ -2,6 +2,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+let g:python3_host_prog = $HOME . '/.local/venv/nvim/bin/python'
+
 set nu
 set syntax
 
@@ -23,6 +25,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ziglang/zig.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+
 
 call plug#end()
 
