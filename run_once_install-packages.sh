@@ -23,13 +23,13 @@ install_fish_shell() {
 
 if is_fedora; then
     # Common packages
-    sudo dnf install -y fzf
+    sudo dnf install -y fzf git-delta
     
     # Rust packages
     sudo dnf install -y cargo rust
 
-    cargo install git-delta
-    cargo install fd-find
+    cargo install --quiet git-delta
+    cargo install --quiet fd-find
 
     install_fish_shell
 
