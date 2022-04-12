@@ -21,6 +21,20 @@ install_fish_shell() {
              fisher install PatrickF1/fzf.fish"
 }
 
+install_neovim() {
+    sudo dnf install -y neovim
+    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
+
+    if [[ ! -f ~/.local/venv/nvim/bin/python3 ]]; then
+        mkdir -p ~/.local/venv
+        pushd ~/.local/venv &>/dev/null
+        python3 -m venv nvim
+        ~/.local/venv/nvim/bin/python3 -m pip install --upgrade pip
+        ~/.local/venv/nvim/bin/python3 -m pip install pynvim black
+        popd &>/dev/null
+    fi
+}
+
 if is_fedora; then
     # Common packages
     sudo dnf install -y fzf nodejs
@@ -35,9 +49,5 @@ if is_fedora; then
     cargo install --quiet fd-find
 
     install_fish_shell
-
-    # Install neovim
-    sudo dnf install -y neovim
-    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
-    
+    install_neovim
 fi
