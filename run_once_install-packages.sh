@@ -24,6 +24,9 @@ install_fish_shell() {
 if is_fedora; then
     # Common packages
     sudo dnf install -y fzf nodejs
+
+    # Development tooling
+    sudo dnf install -y libstdc++-devel clang
     
     # Rust packages
     sudo dnf install -y cargo rust
