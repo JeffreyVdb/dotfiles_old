@@ -26,7 +26,7 @@ if is_fedora; then
     sudo dnf install -y fzf nodejs
 
     # Development tooling
-    sudo dnf install -y libstdc++-devel clang
+    sudo dnf install -y libstdc++-devel clang ShellCheck
     
     # Rust packages
     sudo dnf install -y cargo rust
