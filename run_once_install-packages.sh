@@ -27,11 +27,9 @@ install_neovim() {
 
     if [[ ! -f ~/.local/venv/nvim/bin/python3 ]]; then
         mkdir -p ~/.local/venv
-        pushd ~/.local/venv &>/dev/null
-        python3 -m venv nvim
+        python3 -m venv ~/.local/venv/nvim
         ~/.local/venv/nvim/bin/python3 -m pip install --upgrade pip
         ~/.local/venv/nvim/bin/python3 -m pip install pynvim black
-        popd &>/dev/null
     fi
 }
 
