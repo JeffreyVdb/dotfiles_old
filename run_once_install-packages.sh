@@ -17,13 +17,13 @@ install_fish_shell() {
     test "34c6f4cb4847d27bd7f081ebeafc10585eea31d3a1b1f7bf630108fc658c9529" == "$CSUM"
 
     fish -c "source $FISHER_SCRIPT; 
-    	  fisher install jorgebucaran/hydro;
-	  fisher install PatrickF1/fzf.fish"
+             fisher install jorgebucaran/hydro;
+             fisher install PatrickF1/fzf.fish"
 }
 
 if is_fedora; then
     # Common packages
-    sudo dnf install -y fzf git-delta
+    sudo dnf install -y fzf nodejs
     
     # Rust packages
     sudo dnf install -y cargo rust
