@@ -4,5 +4,17 @@
     },
     "diagnostic-languageserver.formatters": {
         "python": ["black"]
+    },
+    "languageserver": {
+        "terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+        }
     }
 }

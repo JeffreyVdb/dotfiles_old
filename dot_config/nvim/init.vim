@@ -83,6 +83,11 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+"""
+""" COC stuff
+"""
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
 set foldlevel=2
 set foldmethod=expr
