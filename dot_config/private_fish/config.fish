@@ -1,4 +1,8 @@
 if status is-interactive
+    if type -q zoxide
+        zoxide init fish | source
+    end
+
     if type -q /usr/bin/nvim
         set -gx EDITOR /usr/bin/nvim
     else if type -q /usr/bin/vim
