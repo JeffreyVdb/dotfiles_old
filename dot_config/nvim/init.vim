@@ -20,7 +20,7 @@ nmap <C-l> <C-w>l
 
 call plug#begin()
 
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'sainnhe/gruvbox-material'
 Plug 'itchyny/lightline.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ziglang/zig.vim'
@@ -30,9 +30,19 @@ Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
+" ==============================
 " Theming
-colorscheme tokyonight
-let g:lightline = {'colorscheme': 'tokyonight'}
+" ==============================
+if has('termguicolors')
+    set termguicolors
+endif
+
+set background=light
+let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
+
+let g:lightline = {'colorscheme': 'gruvbox_material'}
 
 " Tab settings
 set tabstop=4                   " a tab is four spaces
