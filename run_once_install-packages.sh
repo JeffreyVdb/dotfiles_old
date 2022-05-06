@@ -52,6 +52,7 @@ if is_fedora; then
 
     cargo install --quiet git-delta
     cargo install --quiet fd-find
+    cargo install --quiet cargo-update
 
     install_fish_shell
     install_neovim
