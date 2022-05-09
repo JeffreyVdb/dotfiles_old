@@ -32,8 +32,8 @@
 
 [delta]
     navigate = true  # use n and N to move between diff sections
-    dark = false
+    dark = true
     side-by-side = true
-    syntax-theme = gruvbox-light
+    syntax-theme = gruvbox-dark
     zero-style = syntax
     line-numbers = true
