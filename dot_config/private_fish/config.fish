@@ -3,6 +3,10 @@ if status is-interactive
         zoxide init fish | source
     end
 
+    if test -x /home/linuxbrew/.linuxbrew/bin/brew
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    end
+
     if type -q /usr/bin/nvim
         set -gx EDITOR /usr/bin/nvim
     else if type -q /usr/bin/vim
