@@ -57,4 +57,6 @@ if is_fedora; then
     install_fish_shell
     install_neovim
     install_vscode
+else
+    echo "Unsupported distro for package installation"
 fi
