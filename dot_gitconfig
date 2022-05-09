@@ -1,12 +1,15 @@
 [core]
 	editor = nvim
 	pager = delta --dark
+
 [user]
 	email = jeffrey@vandenborne.co
 	name = Jeffrey Vandenborne
+
 [alias]
 	c = commit --verbose
 	ap = add --patch
+    dft = difftool
 
 [interactive]
     diffFilter = delta --color-only
@@ -14,7 +17,17 @@
 [merge]
     conflictstyle = diff3
 
+[pager]
+    difftool = true
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
 [diff]
+    tool = difftastic
     colorMoved = default
 
 [delta]
