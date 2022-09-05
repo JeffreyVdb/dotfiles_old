@@ -15,5 +15,12 @@ if status is-interactive
         set -gx EDITOR /usr/bin/nano
     end
 
+    if type -q shadowenv
+        shadowenv init fish | source
+    end
+
     abbr --add dnfu "sudo dnf upgrade --refresh"
+
+    # AWS CLI autocomplete
+    complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
