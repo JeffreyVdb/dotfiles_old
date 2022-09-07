@@ -20,13 +20,15 @@ k9s:
   clusters:
     arn:aws:eks:us-east-1:492807964465:cluster/monitoring-dev:
       namespace:
-        active: all
+        active: loki
         lockFavorites: false
         favorites:
+        - loki
+        - cert-manager
         - all
         - default
       view:
-        active: pod
+        active: node
       featureGates:
         nodeShell: false
       shellPod:

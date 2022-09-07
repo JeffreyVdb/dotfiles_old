@@ -21,6 +21,11 @@ if status is-interactive
 
     abbr --add dnfu "sudo dnf upgrade --refresh"
 
+    function mark_prompt_start --on-event fish_prompt
+        echo -en "\e]133;A\e\\"
+    end
+
+
     # AWS CLI autocomplete
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end

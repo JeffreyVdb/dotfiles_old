@@ -5,11 +5,13 @@
 [user]
 	email = jeffrey@vandenborne.co
 	name = Jeffrey Vandenborne
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIn7+kA0efQwY/2fUyXs3kt3jefoFxrvgpcuJTKhE0jl jeffrey.vandenborne@kiswe.com
 
 [alias]
 	c = commit --verbose
 	ap = add --patch
     dft = difftool
+	co = checkout
 
 [interactive]
     diffFilter = delta --color-only
@@ -37,3 +39,11 @@
     syntax-theme = gruvbox-dark
     zero-style = syntax
     line-numbers = true
+[push]
+	autoSetupRemote = true
+[gpg]
+	format = ssh
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
