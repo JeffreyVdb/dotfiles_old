@@ -20,6 +20,8 @@ if status is-interactive
     end
 
     abbr --add dnfu "sudo dnf upgrade --refresh"
+    abbr --add dnfi "sudo dnf install"
+    abbr --add dnfs "sudo dnf search"
 
     function mark_prompt_start --on-event fish_prompt
         echo -en "\e]133;A\e\\"

@@ -5,6 +5,7 @@
 [user]
 	email = jeffrey@vandenborne.co
 	name = Jeffrey Vandenborne
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIn7+kA0efQwY/2fUyXs3kt3jefoFxrvgpcuJTKhE0jl jeffrey.vandenborne@kiswe.com
 
 [alias]
 	c = commit --verbose
@@ -42,3 +43,9 @@
 	rebase = true
 [push]
 	autoSetupRemote = true
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+[gpg]
+	format = ssh
