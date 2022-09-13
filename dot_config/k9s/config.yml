@@ -20,9 +20,12 @@ k9s:
   clusters:
     arn:aws:eks:us-east-1:492807964465:cluster/monitoring-dev:
       namespace:
-        active: loki
+        active: all
         lockFavorites: false
         favorites:
+        - prometheus
+        - ingress-nginx
+        - grafana
         - loki
         - cert-manager
         - all
