@@ -5,7 +5,7 @@
 [user]
 	email = jeffrey@vandenborne.co
 	name = Jeffrey Vandenborne
-	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIn7+kA0efQwY/2fUyXs3kt3jefoFxrvgpcuJTKhE0jl jeffrey.vandenborne@kiswe.com
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfrSjSS7FX9U0XpQZc0EmqaIXyeffrctneMjuKacsKt jeffrey@ptr-4fwfn3n67wy2ixqxxva.18120a2.ip6.access.telenet.be
 
 [alias]
 	c = commit --verbose

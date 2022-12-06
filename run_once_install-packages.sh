@@ -2,7 +2,7 @@
 set -euo pipefail
 
 is_fedora() {
-    [[ "fedora" == $(grep -P '^ID' /etc/os-release | awk -F= '{print $2}') ]]
+    [[ "(fedora|nobara)" =~ $(grep -P '^ID' /etc/os-release | awk -F= '{print $2}') ]]
 }
 
 install_fish_shell() {
