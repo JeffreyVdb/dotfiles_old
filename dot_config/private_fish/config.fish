@@ -1,4 +1,5 @@
 if status is-interactive
+    set fish_greeting
     if type -q zoxide
         zoxide init fish | source
     end
@@ -23,8 +24,10 @@ if status is-interactive
         shadowenv init fish | source
     end
 
-    if test -d "$HOME/.asdf"
+    if test -f "$HOME/.asdf/asdf.fish"
         source "$HOME/.asdf/asdf.fish"
+    else if test -d /opt/asdf-vm
+        source /opt/asdf-vm/asdf.fish
     end
 
     abbr --add dnfu "sudo dnf upgrade --refresh"
