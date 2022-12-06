@@ -5,8 +5,17 @@ is_fedora() {
     [[ "(fedora|nobara)" =~ $(grep -P '^ID' /etc/os-release | awk -F= '{print $2}') ]]
 }
 
+is_arch_linux() {
+    [[ "arch" =~ $(grep -P '^ID_LIKE' /etc/os-release | awk -F= '{print $2}') ]]
+}
+
 install_fish_shell() {
-    sudo dnf install -y fish
+    if is_arch_linux; then
+        sudo pacman -S --noconfirm fish
+    else
+        sudo dnf install -y fish
+    fi
+
     FISHER_SCRIPT=$(mktemp)
     trap 'rm -f $FISHER_SCRIPT' RETURN
 
@@ -22,8 +31,13 @@ install_fish_shell() {
 }
 
 install_neovim() {
-    sudo dnf install -y neovim
-    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
+    if is_arch_linux; then
+        sudo pacman -S --noconfirm neovim
+        sudo ln -sf /usr/bin/nvim /usr/bin/vim
+    else
+        sudo dnf install -y neovim
+        sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 20000
+    fi
 
     if [[ ! -f ~/.local/venv/nvim/bin/python3 ]]; then
         mkdir -p ~/.local/venv
@@ -31,6 +45,9 @@ install_neovim() {
         ~/.local/venv/nvim/bin/python3 -m pip install --upgrade pip
         ~/.local/venv/nvim/bin/python3 -m pip install pynvim black
     fi
+
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 install_vscode() {
@@ -46,7 +63,7 @@ if is_fedora; then
 
     # Development tooling
     sudo dnf install -y libstdc++-devel clang ShellCheck ripgrep
-    
+
     # Rust packages
     sudo dnf install -y cargo rust
 
@@ -57,6 +74,9 @@ if is_fedora; then
     install_fish_shell
     install_neovim
     install_vscode
+elif is_arch_linux; then
+    install_fish_shell
+    install_neovim
 else
     echo "Unsupported distro for package installation"
 fi
