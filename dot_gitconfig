@@ -13,6 +13,7 @@
 	ap = add --patch
     dft = difftool
 	co = checkout
+	fuckit = reset --hard HEAD
 
 [interactive]
     diffFilter = delta --color-only

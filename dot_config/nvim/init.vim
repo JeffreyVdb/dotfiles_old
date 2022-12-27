@@ -3,6 +3,7 @@
 
 " Global keyboard shortcuts
 imap jj <Esc>
+set guifont=Berkeley\ Mono:h10
 
 if exists('g:vscode')
     xmap gc  <Plug>VSCodeCommentary

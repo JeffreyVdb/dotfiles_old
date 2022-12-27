@@ -15,27 +15,24 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: arn:aws:eks:us-east-1:492807964465:cluster/monitoring-dev
+  currentContext: monitoring-dev
   currentCluster: arn:aws:eks:us-east-1:492807964465:cluster/monitoring-dev
   clusters:
     arn:aws:eks:us-east-1:492807964465:cluster/monitoring-dev:
       namespace:
-        active: all
+        active: grafana
         lockFavorites: false
         favorites:
-        - prometheus
-        - ingress-nginx
-        - grafana
-        - loki
-        - cert-manager
         - all
+        - grafana
+        - prometheus
         - default
       view:
-        active: node
+        active: pods
       featureGates:
         nodeShell: false
       shellPod:
-        image: busybox:1.31
+        image: busybox:1.35.0
         command: []
         args: []
         namespace: default
